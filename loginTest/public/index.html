@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="loginApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Login</title>
+    <!-- Compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Angular 1.x -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="https://static.wixstatic.com/media/cebaec_9279917cca7a4e0f9b8cf81c3e1134d7~mv2.png/v1/fill/w_197,h_197,al_c,q_85,usm_0.66_1.00_0.01/cebaec_9279917cca7a4e0f9b8cf81c3e1134d7~mv2.webp">
+    </div>
+    <div  ng-controller="loginCtrl">
+        <div class="panel panel-default" ng-hide="user" >
+            <div class="panel-heading">
+                <div class="panel-body">
+                    <div ng-show="errorMessage" class="alert alert-warning">
+                        {{errorMessage}}
+                    </div>
+                    <title>Login</title>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input type="text" class="form-control" id="email" ng-model="email" placeholder="name@domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" ng-model="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default" ng-click="login()">Login</button>
+                </div>
+            </div>
+        </div>
+        
+        <div ng-show="user" class="container-center">
+            <div>
+                <img src="{{user.profilePic}}"/>
+                <h1>Welcome {{user.name}}</h1>
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" ng-model="newPassword" placeholder="New Password">
+                <button type="submit" class="btn btn-default">Change</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+    <script type="module" src="js/loginCtrl.js"></script>
+</body>
+</html>
